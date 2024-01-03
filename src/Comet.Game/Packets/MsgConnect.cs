@@ -106,16 +106,16 @@ namespace Comet.Game.Packets
             client.AuthorityLevel = auth.AuthorityID;
             client.MacAddress = MacAddress;
 
-            // temp code for pre-release
-#if DEBUG
-            if (client.AuthorityLevel < 2)
-            {
-                await client.SendAsync(new MsgConnectEx(MsgConnectEx.RejectionCode.NonCooperatorAccount));
-                await Log.WriteLogAsync(LogLevel.Warning, $"{client.Identity} non cooperator account.");
-                client.Socket.Disconnect(false);
-                return;
-            }
-#endif
+//             // temp code for pre-release
+// #if DEBUG
+//             if (client.AuthorityLevel < 2)
+//             {
+//                 await client.SendAsync(new MsgConnectEx(MsgConnectEx.RejectionCode.NonCooperatorAccount));
+//                 await Log.WriteLogAsync(LogLevel.Warning, $"{client.Identity} non cooperator account.");
+//                 client.Socket.Disconnect(false);
+//                 return;
+//             }
+// #endif
 
             if (character == null)
             {
